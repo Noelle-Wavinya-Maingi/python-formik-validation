@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useFormik } from "formik";
 import * as yup from "yup";
+
 export const SignupForm = () => {
   const [customers, setCustomers] = useState([{}]);
   const [refreshPage, setRefreshPage] = useState(false);
@@ -44,7 +45,7 @@ export const SignupForm = () => {
         },
         body: JSON.stringify(values, null, 2),
       }).then((res) => {
-        if (res.status == 200) {
+        if (res.status === 200) {
           setRefreshPage(!refreshPage);
         }
       });
@@ -90,9 +91,9 @@ export const SignupForm = () => {
       <table style={{ padding: "15px" }}>
         <tbody>
           <tr>
-            <th>name</th>
-            <th>email</th>
-            <th>age</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Age</th>
           </tr>
           {customers === "undefined" ? (
             <p>Loading</p>
